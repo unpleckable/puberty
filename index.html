@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emotional Wellbeing for Teens</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --lavender:   #EEE9F8;
+      --indigo:     #2D1B6B;
+      --indigo-mid: #4A339A;
+      --rose:       #E8829A;
+      --rose-soft:  #F7D0DA;
+      --amber:      #F5B84C;
+      --amber-soft: #FDF0D5;
+      --mint:       #7ECBB8;
+      --mint-soft:  #D4F0EA;
+      --slate:      #3A3550;
+      --body-max:   860px;
+      --wide-max:   1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--lavender);
+      color: var(--slate);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--indigo);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--indigo);
+      padding: 80px 32px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--rose);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      color: #fff;
+      line-height: 1.15;
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--amber);
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.7);
+      max-width: 520px;
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--indigo);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-bottom: 56px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+
+    /* wavy divider — hero to first section */
+    .wave-divider {
+      width: 100%;
+      line-height: 0;
+    }
+    .wave-divider svg { display: block; }
+
+    /* ── EMOTION STRIP ── */
+    .emotion-strip {
+      background: #fff;
+      padding: 48px 32px;
+    }
+    .emotion-strip-inner {
+      max-width: var(--wide-max);
+      margin: 0 auto;
+    }
+    .strip-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--indigo-mid);
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+    .emotion-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .emotion-card {
+      border-radius: 20px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .emotion-card:nth-child(1) { background: var(--rose-soft); }
+    .emotion-card:nth-child(2) { background: var(--amber-soft); }
+    .emotion-card:nth-child(3) { background: var(--mint-soft); }
+    .emotion-card:nth-child(4) { background: #E8EBF7; }
+    .emotion-card:nth-child(5) { background: #FDE8CB; }
+    .emotion-card:nth-child(6) { background: #E5F7D4; }
+    .emotion-icon { font-size: 2rem; line-height: 1; }
+    .emotion-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--indigo);
+    }
+    .emotion-desc {
+      font-size: 0.82rem;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    /* wave to lavender */
+    .wave-white { background: #fff; }
+    .wave-lavender { background: var(--lavender); }
+    .wave-indigo-bg { background: var(--indigo); }
+
+    /* ── SECTION COMMON ── */
+    section {
+      padding: 80px 32px;
+    }
+    .inner {
+      max-width: var(--body-max);
+      margin: 0 auto;
+    }
+    .inner-wide {
+      max-width: var(--wide-max);
+      margin: 0 auto;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      background: var(--lavender);
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .intro-text .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--rose);
+      border: 2px solid var(--rose);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .intro-text h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--indigo);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .intro-text p {
+      color: var(--slate);
+      margin-bottom: 14px;
+      max-width: 480px;
+    }
+    .intro-visual {
+      background: var(--indigo);
+      border-radius: 24px;
+      padding: 36px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .intro-visual::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: var(--rose);
+      border-radius: 50%;
+      top: -60px;
+      right: -60px;
+      opacity: 0.3;
+    }
+    .wave-chart {
+      width: 100%;
+      margin-top: 8px;
+    }
+    .wave-chart-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 6px;
+    }
+    .wave-chart-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    /* ── IMAGE GALLERY ── */
+    .image-showcase {
+      background: #fff;
+      padding-top: 24px;
+      padding-bottom: 20px;
+    }
+    .image-showcase .inner-wide {
+      max-width: var(--wide-max);
+    }
+    .image-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .image-header .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--indigo-mid);
+      border: 2px solid var(--indigo-mid);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .image-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--indigo);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .image-header p {
+      max-width: 560px;
+      margin: 0 auto;
+      color: var(--slate);
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 26px;
+    }
+    .image-card {
+      background: #fff;
+      border: 1px solid rgba(45, 27, 107, 0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(45, 27, 107, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .image-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(45, 27, 107, 0.12);
+    }
+    .image-card img {
+      display: block;
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #f5dfe8, #ebe4ff);
+    }
+    .image-caption {
+      padding: 20px 20px 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f3ff 100%);
+    }
+    .image-caption h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--indigo);
+      margin-bottom: 6px;
+    }
+    .image-caption p {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    /* ── FEELINGS SECTION ── */
+    .feelings {
+      background: #fff;
+    }
+    .feelings-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .feelings-header .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--mint);
+      border: 2px solid var(--mint);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .feelings-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--indigo);
+      line-height: 1.25;
+      max-width: 560px;
+      margin: 0 auto 14px;
+    }
+    .feelings-header p {
+      max-width: 500px;
+      margin: 0 auto;
+      color: var(--slate);
+    }
+    .accordion-list {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .accordion-item {
+      border: 2px solid #E8E4F4;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--lavender);
+    }
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      text-align: left;
+      gap: 16px;
+    }
+    .accordion-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .acc-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .accordion-trigger h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--indigo);
+    }
+    .acc-chevron {
+      color: var(--indigo-mid);
+      flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+    .accordion-item.open .acc-chevron { transform: rotate(180deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .accordion-item.open .accordion-body { max-height: 400px; }
+    .accordion-body-inner {
+      padding: 4px 24px 24px 52px;
+      color: var(--slate);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── TIPS SECTION ── */
+    .tips {
+      background: var(--lavender);
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .tip-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px 26px;
+    }
+    .tip-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      line-height: 1;
+      color: var(--lavender);
+      margin-bottom: 12px;
+    }
+    .tip-card:nth-child(1) .tip-num { color: var(--rose-soft); }
+    .tip-card:nth-child(2) .tip-num { color: var(--amber-soft); }
+    .tip-card:nth-child(3) .tip-num { color: var(--mint-soft); }
+    .tip-card:nth-child(4) .tip-num { color: #E8EBF7; }
+    .tip-card:nth-child(5) .tip-num { color: #FDE8CB; }
+    .tip-card:nth-child(6) .tip-num { color: #DDF0F8; }
+    .tip-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--indigo);
+      margin-bottom: 10px;
+    }
+    .tip-body {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+    .tips-header { max-width: var(--body-max); margin: 0 auto; }
+    .tips-header .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--amber);
+      border: 2px solid var(--amber);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .tips-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--indigo);
+      line-height: 1.25;
+      max-width: 540px;
+      margin-bottom: 12px;
+    }
+    .tips-header p { max-width: 480px; }
+
+    /* ── QUOTE BLOCK ── */
+    .quote-block {
+      background: var(--indigo);
+      padding: 80px 32px;
+    }
+    .quote-inner {
+      max-width: 660px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-mark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 6rem;
+      line-height: 0.6;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 24px;
+    }
+    blockquote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-style: italic;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .quote-attr {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+    }
+
+    /* ── TALK SECTION ── */
+    .talk {
+      background: var(--lavender);
+    }
+    .talk-inner {
+      max-width: var(--wide-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .talk-left .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--indigo-mid);
+      border: 2px solid var(--indigo-mid);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .talk-left h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--indigo);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .talk-left p { margin-bottom: 14px; max-width: 440px; }
+    .talk-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .talk-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .talk-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .talk-card:nth-child(1) .talk-card-icon { background: var(--rose-soft); }
+    .talk-card:nth-child(2) .talk-card-icon { background: var(--amber-soft); }
+    .talk-card:nth-child(3) .talk-card-icon { background: var(--mint-soft); }
+    .talk-card h4 {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--indigo);
+      margin-bottom: 4px;
+    }
+    .talk-card p { font-size: 0.88rem; color: var(--slate); margin: 0; }
+
+    /* ── CRISIS BAR ── */
+    .crisis-bar {
+      background: var(--rose);
+      padding: 28px 32px;
+    }
+    .crisis-inner {
+      max-width: var(--wide-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .crisis-text {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .crisis-icon { font-size: 2rem; }
+    .crisis-headline {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+    .crisis-sub { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
+    .crisis-cta {
+      display: inline-block;
+      background: #fff;
+      color: var(--rose);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.15s;
+    }
+    .crisis-cta:hover { transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--indigo);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 32px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      color: #fff;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .intro-grid, .talk-inner { grid-template-columns: 1fr; }
+      .tips-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .crisis-inner { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 520px) {
+      .tips-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-brand" href="#">Lorem Resources</a>
+    <ul class="nav-links">
+      <li><a href="#feelings">Feelings</a></li>
+      <li><a href="#tips">Coping</a></li>
+      <li><a href="#talk">Get Help</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <span class="hero-eyebrow">For teens · Lorem ipsum resource</span>
+    <h1>Your feelings are <em>real,</em> and they make sense</h1>
+    <p class="hero-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</p>
+    <a href="#feelings" class="hero-cta">Explore your emotions</a>
+  </header>
+
+  <!-- WAVE: indigo → white -->
+  <div class="wave-indigo-bg">
+    <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <!-- EMOTION STRIP -->
+  <div class="emotion-strip">
+    <div class="emotion-strip-inner">
+      <p class="strip-label">Emotions you might be feeling</p>
+      <div class="emotion-cards">
+        <div class="emotion-card">
+          <span class="emotion-icon">😔</span>
+          <span class="emotion-name">Sadness</span>
+          <p class="emotion-desc">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+        </div>
+        <div class="emotion-card">
+          <span class="emotion-icon">😤</span>
+          <span class="emotion-name">Frustration</span>
+          <p class="emotion-desc">Sed do eiusmod tempor incididunt ut labore et.</p>
+        </div>
+        <div class="emotion-card">
+          <span class="emotion-icon">😰</span>
+          <span class="emotion-name">Anxiety</span>
+          <p class="emotion-desc">Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        </div>
+        <div class="emotion-card">
+          <span class="emotion-icon">😊</span>
+          <span class="emotion-name">Joy</span>
+          <p class="emotion-desc">Duis aute irure dolor in reprehenderit in voluptate.</p>
+        </div>
+        <div class="emotion-card">
+          <span class="emotion-icon">😶</span>
+          <span class="emotion-name">Numbness</span>
+          <p class="emotion-desc">Excepteur sint occaecat cupidatat non proident sunt.</p>
+        </div>
+        <div class="emotion-card">
+          <span class="emotion-icon">😳</span>
+          <span class="emotion-name">Embarrassment</span>
+          <p class="emotion-desc">Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE: white → lavender -->
+  <div class="wave-white">
+    <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C400,0 1040,60 1440,20 L1440,60 L0,60 Z" fill="#EEE9F8"/>
+    </svg>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="inner-wide">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <span class="section-tag">What's happening</span>
+          <h2>Why do feelings get so intense during puberty?</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione sequi nesciunt.</p>
+        </div>
+        <div class="intro-visual" aria-hidden="true">
+          <p class="wave-chart-label">Your emotional landscape</p>
+          <p class="wave-chart-title">Ups &amp; downs are normal</p>
+          <svg class="wave-chart" viewBox="0 0 340 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- grid lines -->
+            <line x1="0" y1="60" x2="340" y2="60" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4 4"/>
+            <line x1="0" y1="20" x2="340" y2="20" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4 4"/>
+            <line x1="0" y1="100" x2="340" y2="100" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4 4"/>
+            <!-- wave path -->
+            <path d="M0,80 C30,80 40,20 80,20 C120,20 130,100 170,90 C210,80 220,30 260,30 C300,30 320,70 340,60"
+                  stroke="#E8829A" stroke-width="3" stroke-linecap="round"/>
+            <!-- dots -->
+            <circle cx="80" cy="20" r="5" fill="#F5B84C"/>
+            <circle cx="170" cy="90" r="5" fill="#7ECBB8"/>
+            <circle cx="260" cy="30" r="5" fill="#F5B84C"/>
+            <!-- labels -->
+            <text x="72" y="12" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Nunito,sans-serif">High</text>
+            <text x="162" y="108" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Nunito,sans-serif">Low</text>
+            <text x="252" y="22" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Nunito,sans-serif">High</text>
+            <text x="2" y="78" fill="rgba(255,255,255,0.45)" font-size="8" font-family="Nunito,sans-serif">Monday</text>
+            <text x="156" y="78" fill="rgba(255,255,255,0.45)" font-size="8" font-family="Nunito,sans-serif">Wednesday</text>
+            <text x="304" y="78" fill="rgba(255,255,255,0.45)" font-size="8" font-family="Nunito,sans-serif">Fri</text>
+          </svg>
+          <p style="font-size:0.78rem; color:rgba(255,255,255,0.45); margin-top:16px;">Lorem ipsum dolor sit amet consectetur. Sed do eiusmod tempor incididunt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE: lavender → white -->
+  <div class="wave-lavender">
+    <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,20 C480,80 960,0 1440,50 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <!-- IMAGE SHOWCASE -->
+  <section class="image-showcase">
+    <div class="inner-wide">
+      <div class="image-header">
+        <span class="section-tag">A gentle visual pause</span>
+        <h2>Supportive moments that feel safe and real</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+
+      <div class="image-grid">
+        <article class="image-card">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="Teen smiling outdoors" />
+          <div class="image-caption">
+            <h3>Connection</h3>
+            <p>Small moments of support and calm can make big feelings feel easier to carry.</p>
+          </div>
+        </article>
+
+        <article class="image-card">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="Teen sitting with a journal" />
+          <div class="image-caption">
+            <h3>Reflection</h3>
+            <p>Creating space to pause, breathe, and notice your emotions helps them feel less overwhelming.</p>
+          </div>
+        </article>
+
+        <article class="image-card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Friends talking together" />
+          <div class="image-caption">
+            <h3>Trust</h3>
+            <p>Talking with someone safe can turn anxiety into understanding and reassurance.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEELINGS ACCORDION -->
+  <section class="feelings" id="feelings">
+    <div class="inner-wide">
+      <div class="feelings-header">
+        <span class="section-tag">Understanding emotions</span>
+        <h2>What these feelings might mean for you</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      </div>
+      <div class="accordion-list">
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+            <span class="accordion-trigger-left">
+              <span class="acc-dot" style="background:var(--rose)"></span>
+              <h3>Feeling overwhelmed or on edge</h3>
+            </span>
+            <svg class="acc-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+            <span class="accordion-trigger-left">
+              <span class="acc-dot" style="background:var(--amber)"></span>
+              <h3>Mood swings that feel out of nowhere</h3>
+            </span>
+            <svg class="acc-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+            <span class="accordion-trigger-left">
+              <span class="acc-dot" style="background:var(--mint)"></span>
+              <h3>Feeling lonely, even around friends</h3>
+            </span>
+            <svg class="acc-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+            <span class="accordion-trigger-left">
+              <span class="acc-dot" style="background:var(--indigo-mid)"></span>
+              <h3>Worrying about what others think</h3>
+            </span>
+            <svg class="acc-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam aut officiis debitis.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+            <span class="accordion-trigger-left">
+              <span class="acc-dot" style="background:#E8829A; opacity:0.6;"></span>
+              <h3>Feeling disconnected from yourself</h3>
+            </span>
+            <svg class="acc-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE: white → lavender -->
+  <div class="wave-white">
+    <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,50 C300,0 1100,70 1440,20 L1440,60 L0,60 Z" fill="#EEE9F8"/>
+    </svg>
+  </div>
+
+  <!-- TIPS -->
+  <section class="tips" id="tips">
+    <div class="inner-wide">
+      <div class="tips-header">
+        <span class="section-tag">Coping toolkit</span>
+        <h2>Things that can help when emotions feel big</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-num">01</div>
+          <p class="tip-title">Lorem ipsum title here</p>
+          <p class="tip-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore dolore magna.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">02</div>
+          <p class="tip-title">Lorem ipsum title here</p>
+          <p class="tip-body">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">03</div>
+          <p class="tip-title">Lorem ipsum title here</p>
+          <p class="tip-body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sit.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">04</div>
+          <p class="tip-title">Lorem ipsum title here</p>
+          <p class="tip-body">Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">05</div>
+          <p class="tip-title">Lorem ipsum title here</p>
+          <p class="tip-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia magni dolores eos.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">06</div>
+          <p class="tip-title">Lorem ipsum title here</p>
+          <p class="tip-body">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote-block">
+    <div class="quote-inner">
+      <span class="quote-mark" aria-hidden="true">"</span>
+      <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</blockquote>
+      <p class="quote-attr">— Lorem Ipsum, Lorem Ipsum Resource</p>
+    </div>
+  </div>
+
+  <!-- TALK / GET HELP -->
+  <section class="talk" id="talk">
+    <div class="talk-inner">
+      <div class="talk-left">
+        <span class="section-tag">You don't have to do this alone</span>
+        <h2>Talking about it is always an option</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.</p>
+      </div>
+      <div class="talk-cards">
+        <div class="talk-card">
+          <div class="talk-card-icon">💬</div>
+          <div>
+            <h4>Lorem ipsum option</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
+          </div>
+        </div>
+        <div class="talk-card">
+          <div class="talk-card-icon">🏫</div>
+          <div>
+            <h4>Lorem ipsum option</h4>
+            <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex commodo.</p>
+          </div>
+        </div>
+        <div class="talk-card">
+          <div class="talk-card-icon">📞</div>
+          <div>
+            <h4>Lorem ipsum option</h4>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRISIS BAR -->
+  <div class="crisis-bar">
+    <div class="crisis-inner">
+      <div class="crisis-text">
+        <span class="crisis-icon">🤝</span>
+        <div>
+          <p class="crisis-headline">If you need help right now</p>
+          <p class="crisis-sub">Call Kids Helpline at 1800 55 1800</p>
+        </div>
+      </div>
+      <a href="https://www.kidshelpline.com.au/khl-webchat/" class="crisis-cta">Kids Helpline Web Chat</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">Lorem Resources</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <div class="footer-links">
+      <a href="#">Lorem</a>
+      <a href="#">Ipsum</a>
+      <a href="#">Dolor</a>
+      <a href="#">Sit</a>
+      <a href="#">Amet</a>
+    </div>
+    <p style="margin-top:8px;">© 2026 Lorem Ipsum. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleAcc(btn) {
+      const item = btn.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+
+</body>
+</html>
