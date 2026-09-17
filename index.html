@@ -25,6 +25,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 88px;
       scrollbar-width: thin;
       scrollbar-color: rgba(74, 51, 154, 0.85) transparent;
     }
@@ -699,20 +700,21 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-brand" href="#">Teen Resources</a>
+    <a class="nav-brand" href="#top">Teen Resources</a>
     <ul class="nav-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#what-happens">What happens</a></li>
       <li><a href="#feelings">Feelings</a></li>
       <li><a href="#tips">Coping</a></li>
-      <li><a href="#talk">Get Help</a></li>
+      <li><a href="#talk">Get help</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <header class="hero">
-    <!-- <span class="hero-eyebrow">For teens · Lorem ipsum resource</span> -->
+  <header class="hero" id="top">
     <h1>Emotional <em>changes,</em> for teens</h1>
-    <p class="hero-sub">During puberty your brain goes through lots of changes that can affect your emotions. You may get mood swings and emotions may feel really intense.</p>
-    <a href="#feelings" class="hero-cta">Explore your emotions</a>
+    <p class="hero-sub">During puberty your brain goes through lots of changes that can affect your emotions. You may notice mood swings, sudden worry, and feelings that seem bigger than usual.</p>
+    <a href="#what-happens" class="hero-cta">Learn what’s normal</a>
   </header>
 
   <!-- WAVE: indigo → white -->
@@ -730,22 +732,22 @@
         <div class="emotion-card">
           <span class="emotion-icon">😔</span>
           <span class="emotion-name">Sadness</span>
-          <p class="emotion-desc">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+          <p class="emotion-desc">Sadness is when you feel down or unhappy.</p>
         </div>
         <div class="emotion-card">
           <span class="emotion-icon">😤</span>
           <span class="emotion-name">Frustration</span>
-          <p class="emotion-desc">Sed do eiusmod tempor incididunt ut labore et.</p>
+          <p class="emotion-desc">Frustration is when you feel annoyed or irritated because you can't achieve what you want.</p>
         </div>
         <div class="emotion-card">
           <span class="emotion-icon">😰</span>
           <span class="emotion-name">Anxiety</span>
-          <p class="emotion-desc">Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          <p class="emotion-desc">Anxiety is when you feel worried or nervous about something.</p>
         </div>
         <div class="emotion-card">
           <span class="emotion-icon">😊</span>
           <span class="emotion-name">Joy</span>
-          <p class="emotion-desc">Duis aute irure dolor in reprehenderit in voluptate.</p>
+          <p class="emotion-desc">Joy is when you feel happy and content with your life.</p>
         </div>
         <!-- <div class="emotion-card">
           <span class="emotion-icon">😶</span>
@@ -755,7 +757,7 @@
         <div class="emotion-card">
           <span class="emotion-icon">😳</span>
           <span class="emotion-name">Embarrassment</span>
-          <p class="emotion-desc">Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
+          <p class="emotion-desc">Embarrassment is when you feel self-conscious or ashamed about something you've done.</p>
         </div>
       </div>
     </div>
@@ -769,32 +771,28 @@
   </div>
 
   <!-- INTRO -->
-  <section class="intro">
+  <section class="intro" id="what-happens">
     <div class="inner-wide">
       <div class="intro-grid">
         <div class="intro-text">
           <span class="section-tag">What's happening</span>
           <h2>Why do feelings get so intense during puberty?</h2>
-          <p>Emotions get intense during puberty due to lots of hormones changing in your body and brain development.</p>
-          <p>These hormones happen because the brain is preparing itself to deal with stronger and more complex emotions.</p>
-          <p>Hormones aren't the only factor. Peer pressure, lack of sleep, school demands and more also play a role in your emotions and mood swings.</p>
+          <p>Emotions can feel extra strong during puberty because your body is changing quickly and your brain is still learning how to manage new feelings.</p>
+          <p>Hormones play a big role, but so do stress, sleep, school pressure, friendships, and social media. That mix can make everyday situations feel much bigger than they used to.</p>
+          <p>Feeling a bit all over the place is not a sign that something is wrong. It often means your body and brain are adjusting, and that change can take time.</p>
         </div>
         <div class="intro-visual" aria-hidden="true">
           <p class="wave-chart-label">Your emotional landscape</p>
           <p class="wave-chart-title">Ups &amp; downs are normal</p>
           <svg class="wave-chart" viewBox="0 0 340 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- grid lines -->
             <line x1="0" y1="60" x2="340" y2="60" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4 4"/>
             <line x1="0" y1="20" x2="340" y2="20" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4 4"/>
             <line x1="0" y1="100" x2="340" y2="100" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4 4"/>
-            <!-- wave path -->
             <path d="M0,80 C30,80 40,20 80,20 C120,20 130,100 170,90 C210,80 220,30 260,30 C300,30 320,70 340,60"
                   stroke="#E8829A" stroke-width="3" stroke-linecap="round"/>
-            <!-- dots -->
             <circle cx="80" cy="20" r="5" fill="#F5B84C"/>
             <circle cx="170" cy="90" r="5" fill="#7ECBB8"/>
             <circle cx="260" cy="30" r="5" fill="#F5B84C"/>
-            <!-- labels -->
             <text x="72" y="12" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Nunito,sans-serif">High</text>
             <text x="162" y="108" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Nunito,sans-serif">Low</text>
             <text x="252" y="22" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Nunito,sans-serif">High</text>
@@ -802,7 +800,6 @@
             <text x="156" y="78" fill="rgba(255,255,255,0.45)" font-size="8" font-family="Nunito,sans-serif">Wednesday</text>
             <text x="304" y="78" fill="rgba(255,255,255,0.45)" font-size="8" font-family="Nunito,sans-serif">Fri</text>
           </svg>
-          <!-- <p style="font-size:0.78rem; color:rgba(255,255,255,0.45); margin-top:16px;">Lorem ipsum dolor sit amet consectetur. Sed do eiusmod tempor incididunt.</p> -->
         </div>
       </div>
     </div>
@@ -816,12 +813,11 @@
   </div>
 
   <!-- IMAGE SHOWCASE -->
-  <section class="image-showcase">
+  <section class="image-showcase" id="supportive-moments">
     <div class="inner-wide">
       <div class="image-header">
-        <!-- <span class="section-tag">A gentle visual pause</span> -->
         <h2>Supportive moments that feel safe and real</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Some of the best support is simple, steady, and kind. Even a short check-in or a calm conversation can help you feel less alone.</p>
       </div>
 
       <div class="image-grid">
@@ -858,7 +854,7 @@
       <div class="feelings-header">
         <span class="section-tag">Understanding emotions</span>
         <h2>What these feelings might mean for you</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        <p>Big emotions during puberty often show up as stress, irritation, tears, or a sudden need to withdraw. They can feel intense, but they are usually part of a normal change.</p>
       </div>
       <div class="accordion-list">
 
@@ -872,7 +868,7 @@
           </button>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+              Feeling overloaded can happen when stress, sleep loss, or social pressure builds up. It does not mean you are weak; it usually means your system needs a break and a little support.
             </div>
           </div>
         </div>
@@ -887,7 +883,7 @@
           </button>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem.
+              A sudden switch from calm to irritated or sad can be a normal puberty response. Your brain and body are adjusting, and emotional changes can happen quickly when you are tired, stressed, or unsure of yourself.
             </div>
           </div>
         </div>
@@ -902,7 +898,7 @@
           </button>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa.
+              This can happen when your social world is changing, or when you are comparing yourself with other people. Loneliness is not a failure; it often means you need connection, space, or a more honest conversation with someone safe.
             </div>
           </div>
         </div>
@@ -917,7 +913,7 @@
           </button>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam aut officiis debitis.
+              Self-conscious feelings are common during puberty because your brain is more tuned into social feedback. It can help to remember that most people are focused on their own worries, not judging you as much as you imagine.
             </div>
           </div>
         </div>
@@ -932,7 +928,7 @@
           </button>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.
+              Sometimes puberty can make you feel like you do not fully recognise yourself. That can be unsettling, but it is often a sign that you are growing and learning who you are, not that anything is permanently wrong.
             </div>
           </div>
         </div>
@@ -954,38 +950,38 @@
       <div class="tips-header">
         <span class="section-tag">Coping toolkit</span>
         <h2>Things that can help when emotions feel big</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        <p>There is no one-size-fits-all fix, but small habits can make a real difference. Building a few reliable coping strategies can help emotions feel less intense.</p>
       </div>
       <div class="tips-grid">
         <div class="tip-card">
           <div class="tip-num">01</div>
-          <p class="tip-title">Lorem ipsum title here</p>
-          <p class="tip-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore dolore magna.</p>
+          <p class="tip-title">Pause and breathe</p>
+          <p class="tip-body">Try slowing your breathing for 60 seconds. A short reset can help your nervous system calm down before emotions spiral.</p>
         </div>
         <div class="tip-card">
           <div class="tip-num">02</div>
-          <p class="tip-title">Lorem ipsum title here</p>
-          <p class="tip-body">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p class="tip-title">Move your body</p>
+          <p class="tip-body">A quick walk, stretch, or dance break can release stress and help your mood settle more quickly.</p>
         </div>
         <div class="tip-card">
           <div class="tip-num">03</div>
-          <p class="tip-title">Lorem ipsum title here</p>
-          <p class="tip-body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sit.</p>
+          <p class="tip-title">Name the feeling</p>
+          <p class="tip-body">Notice what you are feeling without judging it. Saying “I feel anxious” is often easier to manage than “I’m a mess.”</p>
         </div>
         <div class="tip-card">
           <div class="tip-num">04</div>
-          <p class="tip-title">Lorem ipsum title here</p>
-          <p class="tip-body">Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="tip-title">Talk to someone you trust</p>
+          <p class="tip-body">A trusted adult, friend, or counselor can help you sort feelings and remind you that you are not facing them alone.</p>
         </div>
         <div class="tip-card">
           <div class="tip-num">05</div>
-          <p class="tip-title">Lorem ipsum title here</p>
-          <p class="tip-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia magni dolores eos.</p>
+          <p class="tip-title">Lower the noise</p>
+          <p class="tip-body">Take a break from screens, notifications, or comparison-heavy content if they are making your emotions feel louder.</p>
         </div>
         <div class="tip-card">
           <div class="tip-num">06</div>
-          <p class="tip-title">Lorem ipsum title here</p>
-          <p class="tip-body">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+          <p class="tip-title">Make a plan for the next day</p>
+          <p class="tip-body">Small routines like sleep, meals, and time outdoors can help your feelings feel steadier over time.</p>
         </div>
       </div>
     </div>
@@ -1063,17 +1059,15 @@
   </div>
 
   <!-- FOOTER -->
-  <footer>
+  <footer id="resources">
     <p class="footer-logo">Teen Resources</p>
-    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
     <div class="footer-links">
-      <a href="#">Lorem</a>
-      <a href="#">Ipsum</a>
-      <a href="#">Dolor</a>
-      <a href="#">Sit</a>
-      <a href="#">Amet</a>
+      <a href="#top">Home</a>
+      <a href="#what-happens">What happens</a>
+      <a href="#feelings">Feelings</a>
+      <a href="#tips">Coping</a>
+      <a href="#talk">Get help</a>
     </div>
-    <!-- <p style="margin-top:8px;">© 2026 Lorem Ipsum. All rights reserved.</p> -->
   </footer>
 
   <script>
